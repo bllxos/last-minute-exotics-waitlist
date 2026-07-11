@@ -1,0 +1,755 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Last Minute Exotics — Private Access, La Jolla</title>
+<meta name="description" content="Private waitlist for San Diego's newest luxury exotic car experience. Invitation only.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Last Minute Exotics — Private Access">
+<meta property="og:description" content="Like Hotels Tonight. For exotic cars. Private access only.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#050505;
+    --bg-2:#111111;
+    --bg-3:#161616;
+    --gold:#e2231a;
+    --gold-bright:#ff3b30;
+    --cream:#ffffff;
+    --muted:#a3a3a3;
+    --muted-2:#707070;
+    --border:rgba(226,35,26,0.35);
+    --border-soft:rgba(255,255,255,0.12);
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--cream);
+    font-family:'Jost',sans-serif;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.6;
+  }
+  body::before{
+    content:'';
+    position:fixed;inset:0;
+    pointer-events:none;
+    z-index:0;
+    background:
+      radial-gradient(ellipse 800px 500px at 50% -10%, rgba(226,35,26,0.14), transparent 60%),
+      radial-gradient(ellipse 700px 500px at 100% 100%, rgba(226,35,26,0.06), transparent 60%);
+  }
+  h1,h2,h3{font-family:'Archivo Black',sans-serif;margin:0;font-weight:400;text-transform:uppercase;letter-spacing:.01em;}
+  .serif-italic{font-family:'Jost',sans-serif;font-style:normal;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--gold-bright);}
+  .eyebrow{
+    font-family:'Jost',sans-serif;
+    letter-spacing:.28em;
+    text-transform:uppercase;
+    font-size:.72rem;
+    color:var(--gold);
+    font-weight:500;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative;z-index:1;}
+  a{color:inherit;}
+
+  /* Header */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(10,9,8,0.82);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border-soft);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;max-width:var(--maxw);margin:0 auto;}
+  .wordmark{font-family:'Archivo Black',sans-serif;font-weight:400;letter-spacing:.02em;font-size:1rem;color:var(--cream);text-decoration:none;display:inline-flex;align-items:center;gap:9px;}
+  .wordmark svg{flex-shrink:0;}
+  .wordmark b{color:var(--gold);}
+  .btn{
+    display:inline-block;
+    font-family:'Jost',sans-serif;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    font-size:.72rem;
+    font-weight:600;
+    padding:13px 26px;
+    border:1px solid var(--gold);
+    color:var(--gold);
+    background:transparent;
+    text-decoration:none;
+    cursor:pointer;
+    transition:all .25s ease;
+    border-radius:1px;
+  }
+  .btn:hover{background:var(--gold);color:#0a0908;}
+  .btn-solid{background:var(--gold);color:#0a0908;}
+  .btn-solid:hover{background:var(--gold-bright);border-color:var(--gold-bright);}
+  .btn-block{width:100%;text-align:center;}
+  .btn:disabled{opacity:.35;cursor:not-allowed;}
+  .btn:disabled:hover{background:var(--gold-solid,transparent);}
+  .nav .btn{padding:9px 18px;font-size:.66rem;}
+
+  /* Hero */
+  .hero{
+    padding:96px 24px 72px;
+    text-align:center;
+    position:relative;
+  }
+  .hero h1{
+    font-size:clamp(2.2rem,8.2vw,4.1rem);
+    letter-spacing:0;
+    line-height:1.02;
+    margin:16px 0 4px;
+  }
+  .hero h1 .top{display:block;color:var(--cream);}
+  .hero h1 .main{display:block;font-size:.5em;color:var(--cream);margin-top:8px;}
+  .hero-access{color:var(--gold-bright);font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:clamp(.9rem,2.4vw,1.15rem);margin-top:10px;}
+  .subtext{max-width:480px;margin:18px auto 0;color:var(--muted);font-size:.98rem;}
+  .hero-ctas{margin-top:36px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+  .hero-meta{margin-top:40px;color:var(--muted-2);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;}
+
+  .unlock{padding:0 24px 64px;}
+  .unlock-box{max-width:520px;margin:0 auto;border:1px solid var(--border);padding:38px 30px;text-align:center;background:linear-gradient(180deg,var(--bg-2),var(--bg));}
+  .lock-icon{margin-bottom:16px;display:flex;justify-content:center;}
+  .unlock-box h2{font-size:clamp(1.4rem,4vw,1.8rem);margin-top:10px;}
+  .unlock-box p{color:var(--muted);margin:14px 0 24px;font-size:.92rem;}
+
+  section{padding:64px 24px;position:relative;}
+  .section-head{text-align:center;max-width:600px;margin:0 auto 40px;}
+  .section-head h2{font-size:clamp(1.5rem,3.6vw,2rem);margin-top:12px;}
+  .section-head p{color:var(--muted);margin-top:14px;font-size:.94rem;}
+
+  /* Founding */
+  .founding{text-align:center;}
+  .founding-box{
+    max-width:520px;margin:0 auto;border:1px solid var(--border);padding:40px 32px;
+    background:radial-gradient(ellipse at 50% 0%, rgba(226,35,26,0.10), transparent 70%);
+  }
+  .founding-box .eyebrow{margin-bottom:14px;}
+  .founding-box h3{font-size:1.35rem;color:var(--cream);}
+  .founding-box p{color:var(--muted);margin-top:14px;font-size:.92rem;}
+  .founding-count{
+    display:inline-block;margin-top:22px;font-family:'Archivo Black',sans-serif;
+    font-size:2rem;color:var(--gold-bright);
+  }
+  .founding-count span{display:block;font-family:'Jost',sans-serif;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted-2);margin-top:4px;}
+
+  /* Giveaway */
+  .giveaway{background:var(--bg-2);border-top:1px solid var(--border-soft);border-bottom:1px solid var(--border-soft);}
+  .giveaway-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;max-width:880px;margin:0 auto;align-items:center;}
+  .giveaway-card{border:1px solid var(--border);padding:38px 28px;text-align:center;background:var(--bg);}
+  .giveaway-card .mystery{font-size:2.6rem;color:var(--gold);margin-bottom:6px;}
+  .giveaway-card h3{font-size:1.25rem;color:var(--cream);}
+  .giveaway-card .price{font-family:'Archivo Black',sans-serif;font-size:2.1rem;color:var(--gold-bright);margin:14px 0 4px;}
+  .giveaway-card .price small{font-family:'Jost',sans-serif;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-2);display:block;margin-top:4px;}
+  .giveaway-copy p{color:var(--muted);font-size:.92rem;margin-bottom:14px;}
+  .giveaway-copy ul{padding-left:0;list-style:none;margin:18px 0 0;}
+  .giveaway-copy li{padding:8px 0 8px 24px;position:relative;font-size:.88rem;color:var(--cream);border-top:1px solid var(--border-soft);}
+  .giveaway-copy li::before{content:'◆';position:absolute;left:0;color:var(--gold);font-size:.58rem;top:14px;}
+
+  /* Quiz */
+  .quiz-section{text-align:center;}
+  .quiz-card{
+    max-width:540px;margin:0 auto;border:1px solid var(--border);
+    background:var(--bg-2);padding:40px 28px;text-align:left;
+    position:relative;
+  }
+  .quiz-progress{display:flex;gap:6px;margin-bottom:26px;}
+  .quiz-progress .bar{flex:1;height:2px;background:var(--border-soft);}
+  .quiz-progress .bar.done{background:var(--gold);}
+  .q-step{display:none;}
+  .q-step.active{display:block;animation:fade .35s ease;}
+  @keyframes fade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+  .q-step .q-eyebrow{color:var(--muted-2);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:8px;}
+  .q-step h3{font-size:1.22rem;color:var(--cream);margin-bottom:20px;line-height:1.32;}
+  .q-hint-small{color:var(--muted-2);font-size:.72rem;margin:-12px 0 18px;text-transform:uppercase;letter-spacing:.08em;}
+  .opt-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .opt{
+    border:1px solid var(--border-soft);padding:14px 12px;text-align:center;
+    font-size:.85rem;color:var(--cream);cursor:pointer;background:var(--bg);
+    transition:all .2s ease;
+  }
+  .opt:hover{border-color:var(--gold);color:var(--gold-bright);}
+  .opt.selected{border-color:var(--gold);background:rgba(226,35,26,0.14);color:var(--gold-bright);}
+  .opt-single{grid-template-columns:1fr;}
+  .field{margin-bottom:16px;}
+  .field label{display:block;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+  .field input{
+    width:100%;background:var(--bg);border:1px solid var(--border-soft);color:var(--cream);
+    padding:13px 14px;font-family:'Jost',sans-serif;font-size:.95rem;border-radius:1px;
+  }
+  .field input:focus{outline:none;border-color:var(--gold);}
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .q-nav{display:flex;justify-content:space-between;align-items:center;margin-top:22px;}
+  .q-back{color:var(--muted-2);font-size:.76rem;cursor:pointer;background:none;border:none;font-family:'Jost',sans-serif;letter-spacing:.08em;text-transform:uppercase;padding:8px 0;}
+  .q-back:hover{color:var(--gold);}
+  .q-hint{color:var(--muted-2);font-size:.72rem;margin-top:16px;text-align:center;}
+  .error-msg{color:#d98a6c;font-size:.8rem;margin-top:10px;display:none;}
+  .continue-wrap{margin-top:18px;}
+
+  /* Thank you */
+  .thankyou{display:none;}
+  .thankyou.active{display:block;animation:fade .4s ease;}
+  .ty-headline{text-align:center;font-size:clamp(2rem,7vw,2.6rem);margin-bottom:22px;}
+  .ty-msg{color:var(--muted);font-size:.94rem;margin:0 0 14px;}
+  .ty-msg b{color:var(--cream);font-weight:600;}
+  .ty-inbox{border:1px solid var(--border);padding:20px;margin:22px 0;background:var(--bg);text-align:center;}
+  .ty-inbox .eyebrow{margin-bottom:8px;}
+  .ty-inbox .from{color:var(--gold-bright);font-weight:600;}
+  .ty-divider{display:flex;align-items:center;gap:10px;margin:28px 0;color:var(--muted-2);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;}
+  .ty-divider::before,.ty-divider::after{content:'';flex:1;height:1px;background:var(--border-soft);}
+  .ref-box{border:1px solid var(--border-soft);padding:20px;margin-top:10px;background:var(--bg);}
+  .ref-box label{display:block;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;}
+  .ref-row{display:flex;gap:8px;}
+  .ref-row input{flex:1;background:var(--bg-2);border:1px solid var(--border-soft);color:var(--gold-bright);padding:12px;font-size:.8rem;font-family:'Jost',sans-serif;}
+  .ref-row button{white-space:nowrap;}
+  .share-row{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;}
+  .share-row a, .share-row button{flex:1;min-width:120px;}
+  .entries-note{text-align:center;color:var(--muted);font-size:.82rem;margin-top:18px;}
+  .entries-note b{color:var(--gold);}
+  .ty-home{text-align:center;margin-top:30px;}
+
+  /* FAQ */
+  .faq{max-width:700px;margin:0 auto;}
+  .faq-item{border-bottom:1px solid var(--border-soft);}
+  .faq-q{
+    width:100%;text-align:left;background:none;border:none;color:var(--cream);
+    font-family:'Jost',sans-serif;font-size:1rem;font-weight:500;padding:20px 0;cursor:pointer;
+    display:flex;justify-content:space-between;align-items:center;gap:16px;
+  }
+  .faq-q .plus{color:var(--gold);font-family:'Archivo Black',sans-serif;font-size:1.3rem;transition:transform .25s ease;}
+  .faq-item.open .plus{transform:rotate(45deg);}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--muted);font-size:.9rem;}
+  .faq-item.open .faq-a{max-height:240px;padding-bottom:20px;}
+
+  /* Legal */
+  .legal{background:var(--bg-2);border-top:1px solid var(--border-soft);}
+  .legal .wrap{max-width:740px;}
+  .legal h4{color:var(--gold);font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;margin:24px 0 10px;}
+  .legal h4:first-child{margin-top:0;}
+  .legal p{color:var(--muted-2);font-size:.8rem;margin:0 0 8px;}
+
+  footer{padding:44px 24px 30px;text-align:center;border-top:1px solid var(--border-soft);}
+  footer .wordmark{display:block;margin-bottom:10px;justify-content:center;}
+  footer .foot-links{color:var(--muted-2);font-size:.78rem;letter-spacing:.05em;}
+  footer .foot-links a{text-decoration:none;color:var(--muted-2);}
+  footer .foot-links a:hover{color:var(--gold);}
+  footer .copyright{color:var(--muted-2);font-size:.7rem;margin-top:18px;opacity:.7;}
+
+  @media (max-width:720px){
+    .giveaway-grid{grid-template-columns:1fr;}
+    .field-row{grid-template-columns:1fr;}
+    section{padding:52px 20px;}
+    .hero{padding:60px 20px 48px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="#top" class="wordmark"><svg width="24" height="13" viewBox="0 0 52 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 20c0-2 2-4 5-4l4-7c2-3 6-5 10-5h8c4 0 7 2 9 5l3 5c3 0 6 1 8 3l1 3H2z" stroke="currentColor" stroke-width="1.6"/><circle cx="14" cy="22" r="3" stroke="currentColor" stroke-width="1.6"/><circle cx="38" cy="22" r="3" stroke="currentColor" stroke-width="1.6"/><circle cx="45" cy="16" r="1.6" fill="#e2231a"/></svg>LAST MINUTE <b>EXOTICS</b></a>
+    <a href="#quiz" class="btn">Join the Waitlist</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Like</div>
+      <h1>
+        <span class="top">Hotels Tonight.</span>
+        <span class="main">For Exotic Cars.</span>
+      </h1>
+      <div class="hero-access">Private Access Only.</div>
+      <p class="subtext">Join the private waitlist for San Diego's newest luxury exotic car experience. Be among the first to receive exclusive access, private launch invitations and founder-only benefits.</p>
+      <div class="hero-ctas">
+        <a href="#quiz" class="btn btn-solid">Join the Waitlist</a>
+      </div>
+      <div class="hero-meta">Invitation Only · La Jolla · Founding Members Opening Soon</div>
+    </div>
+  </section>
+
+  <section class="unlock">
+    <div class="wrap unlock-box">
+      <div class="lock-icon"><svg width="30" height="34" viewBox="0 0 30 34" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="15" width="22" height="16" rx="2" stroke="#e2231a" stroke-width="2"/><path d="M9 15V9a6 6 0 0 1 12 0v6" stroke="#e2231a" stroke-width="2"/></svg></div>
+      <div class="eyebrow">You Found It</div>
+      <h2>Unlock Private Access</h2>
+      <p>A few quick questions, and you're on the list.</p>
+      <a href="#quiz" class="btn btn-solid">Join the Waitlist</a>
+    </div>
+  </section>
+
+  <!-- FOUNDING MEMBERS TEASER -->
+  <section class="founding">
+    <div class="wrap">
+      <div class="founding-box">
+        <div class="eyebrow">Founding Access</div>
+        <h3>A limited number of Founders will be invited first.</h3>
+        <p>Details are shared exclusively with the waitlist — before anyone else hears about it.</p>
+        <div class="founding-count">25<span>Founding Seats · Details On The List</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GIVEAWAY -->
+  <section class="giveaway">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Launch Giveaway</div>
+        <h2>One surprise exotic. One day.</h2>
+      </div>
+      <div class="giveaway-grid">
+        <div class="giveaway-card">
+          <div class="mystery">?</div>
+          <h3>Surprise Exotic Car Day</h3>
+          <div class="price">$1<small>Winner Pays</small></div>
+        </div>
+        <div class="giveaway-copy">
+          <p>Every member who joins the waitlist receives one entry into our launch giveaway. The car stays a secret until the day it's revealed.</p>
+          <ul>
+            <li>Join the waitlist — get 1 entry</li>
+            <li>Refer a friend who joins — get +1 entry</li>
+            <li>Winner announced live</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUIZ / WAITLIST FORM -->
+  <section class="quiz-section" id="quiz">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Join the Waitlist</div>
+        <h2>Private access starts here.</h2>
+      </div>
+
+      <div class="quiz-card" id="quizCard">
+        <div class="quiz-progress" id="progressBar"></div>
+
+        <!-- Contact -->
+        <div class="q-step active" data-step="1">
+          <div class="q-eyebrow">Step 1 of 6</div>
+          <h3>Where should we send your invitation?</h3>
+          <div class="field-row">
+            <div class="field">
+              <label>First Name</label>
+              <input type="text" id="firstNameInput" placeholder="First name">
+            </div>
+            <div class="field">
+              <label>Last Name</label>
+              <input type="text" id="lastNameInput" placeholder="Last name">
+            </div>
+          </div>
+          <div class="field">
+            <label>Email</label>
+            <input type="email" id="emailInput" placeholder="you@email.com">
+          </div>
+          <div class="field">
+            <label>Mobile Number (optional)</label>
+            <input type="tel" id="phoneInput" placeholder="(858) 000-0000">
+          </div>
+          <button class="btn btn-solid btn-block" id="continueContact">Continue</button>
+          <div class="error-msg" id="contactError"></div>
+          <p class="q-hint">No spam. One list. Unsubscribe anytime.</p>
+        </div>
+
+        <!-- Q1 -->
+        <div class="q-step" data-step="2">
+          <div class="q-eyebrow">Step 2 of 6</div>
+          <h3>If you could drive one today...</h3>
+          <div class="opt-grid opt-single" data-field="brand">
+            <div class="opt">Aston Martin</div>
+            <div class="opt">Mercedes-AMG</div>
+            <div class="opt">Ferrari</div>
+            <div class="opt">Lamborghini</div>
+            <div class="opt">McLaren</div>
+          </div>
+          <button class="q-back" data-back="1">← Back</button>
+        </div>
+
+        <!-- Q2 -->
+        <div class="q-step" data-step="3">
+          <div class="q-eyebrow">Step 3 of 6</div>
+          <h3>What would most likely bring you to Last Minute Exotics?</h3>
+          <div class="opt-grid opt-single" data-field="reason">
+            <div class="opt">Weekend escape</div>
+            <div class="opt">Date night</div>
+            <div class="opt">Vacation</div>
+            <div class="opt">Business trip</div>
+            <div class="opt">Special occasion</div>
+          </div>
+          <button class="q-back" data-back="2">← Back</button>
+        </div>
+
+        <!-- Q3 -->
+        <div class="q-step" data-step="4">
+          <div class="q-eyebrow">Step 4 of 6</div>
+          <h3>What matters most when choosing an exotic car experience?</h3>
+          <div class="q-hint-small">Choose up to two</div>
+          <div class="opt-grid" data-field="priorities" data-max="2">
+            <div class="opt">Vehicle selection</div>
+            <div class="opt">Convenience</div>
+            <div class="opt">Privacy</div>
+            <div class="opt">Exceptional service</div>
+            <div class="opt" style="grid-column:1/-1">Exclusive access</div>
+          </div>
+          <div class="continue-wrap">
+            <button class="btn btn-solid btn-block" id="continuePriorities" disabled>Continue</button>
+          </div>
+          <button class="q-back" data-back="3">← Back</button>
+        </div>
+
+        <!-- Q4 -->
+        <div class="q-step" data-step="5">
+          <div class="q-eyebrow">Step 5 of 6</div>
+          <h3>How often do you rent luxury or exotic vehicles?</h3>
+          <div class="opt-grid opt-single" data-field="frequency">
+            <div class="opt">First time</div>
+            <div class="opt">Once a year</div>
+            <div class="opt">A few times a year</div>
+            <div class="opt">Regularly</div>
+          </div>
+          <button class="q-back" data-back="4">← Back</button>
+        </div>
+
+        <!-- Q5 -->
+        <div class="q-step" data-step="6">
+          <div class="q-eyebrow">Step 6 of 6</div>
+          <h3>If offered Founder Access, what interests you most?</h3>
+          <div class="opt-grid opt-single" data-field="founderInterest">
+            <div class="opt">Early booking access</div>
+            <div class="opt">Private launch events</div>
+            <div class="opt">Members-only experiences</div>
+            <div class="opt">Priority vehicle availability</div>
+            <div class="opt" style="grid-column:1/-1">Exclusive founder benefits</div>
+          </div>
+          <div class="error-msg" id="submitError"></div>
+          <button class="q-back" data-back="5">← Back</button>
+        </div>
+
+        <!-- THANK YOU -->
+        <div class="thankyou" id="thankyou">
+          <h2 class="ty-headline">You're In.</h2>
+          <p class="ty-msg">Welcome to the <b>Last Minute Exotics Founding Waitlist</b>. You're now among the first to hear about our private launch. Founder members will receive early access, launch invitations and exclusive opportunities not available to the public.</p>
+
+          <div class="ty-inbox">
+            <div class="eyebrow">Before We Can Activate Your Place</div>
+            <p class="ty-msg" style="margin-top:10px;">Please check your inbox. You'll receive an email from <span class="from">info@BLLX.pro</span>. Reply to that email to confirm your place on the waitlist.</p>
+            <p class="ty-msg" style="margin-bottom:0;">This extra step helps ensure we only communicate with genuinely interested members. We'll be in touch soon.</p>
+          </div>
+
+          <div class="ty-divider">Your Referral Link</div>
+
+          <div class="ref-box">
+            <label>Share to move up faster</label>
+            <div class="ref-row">
+              <input type="text" id="refLink" readonly>
+              <button class="btn" id="copyBtn">Copy</button>
+            </div>
+            <div class="share-row">
+              <button class="btn" id="shareBtn">Share</button>
+              <a class="btn" id="smsShare" href="#">Text a Friend</a>
+            </div>
+          </div>
+          <p class="entries-note">You currently have <b id="entryCount">1</b> entr<span id="entryPlural">y</span> in the Surprise Exotic Car Day giveaway. Every friend who joins using your link earns you one more.</p>
+
+          <div class="ty-home"><a href="#top" class="btn">Return Home</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">FAQ</div>
+        <h2>Before you ask</h2>
+      </div>
+      <div class="faq">
+        <div class="faq-item">
+          <button class="faq-q">Is this a discount rental service? <span class="plus">+</span></button>
+          <div class="faq-a"><p>No. Last Minute Exotics is a private waitlist for genuine unsold inventory that independent exotic rental companies would otherwise leave idle. It is not a coupon site, and it is not open to the public.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">What does membership cost? <span class="plus">+</span></button>
+          <div class="faq-a"><p>Membership details, including Founding Member terms, are released exclusively to people on the waitlist. Joining the list does not cost anything and does not obligate you to join later.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Do I need to already own an exotic car? <span class="plus">+</span></button>
+          <div class="faq-a"><p>No. Members come from many backgrounds — the only requirement is genuine interest and, when you book, a valid driver's license and insurance meeting the rental company's standards.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">When will I hear back? <span class="plus">+</span></button>
+          <div class="faq-a"><p>We're onboarding our first partner in La Jolla now. Waitlist members will be the first to know when access opens.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Is the giveaway real? <span class="plus">+</span></button>
+          <div class="faq-a"><p>Yes. One member will win a surprise exotic for one day, redeemable for $1. No purchase is necessary to enter or win. Full official rules will be published before the drawing.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">How does the referral system work? <span class="plus">+</span></button>
+          <div class="faq-a"><p>You get one entry for joining. Every friend who joins using your personal link earns you one additional entry — with no limit.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEGAL -->
+  <section class="legal" id="legal">
+    <div class="wrap">
+      <h4>Privacy</h4>
+      <p>Information you submit is used only to manage your waitlist position, communicate about membership, and administer the giveaway described on this page. We do not sell your data. You may request removal at any time by emailing the address in the footer.</p>
+
+      <h4>Giveaway Official Rules (Summary)</h4>
+      <p>NO PURCHASE NECESSARY TO ENTER OR WIN. Open to legal residents of the United States who are 18 years of age or older at time of entry. One (1) entry per person for joining the waitlist; additional entries earned through successful referrals as described on this page. Odds of winning depend on the total number of eligible entries received. Winner will be selected at random and announced via Instagram Live and email. Prize is one (1) single-day rental of a surprise exotic vehicle, redeemable by the winner for $1, subject to the fulfilling rental company's insurance, deposit, age, and licensing requirements. Prize is not redeemable for cash and is non-transferable. Void where prohibited. A full Official Rules document will be published prior to the drawing.</p>
+
+      <h4>Terms</h4>
+      <p>Joining this waitlist does not guarantee membership or access to any rental inventory. Last Minute Exotics is an independent platform; vehicles are owned and operated by third-party rental companies who control pricing, availability, and eligibility for every release.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <a href="#top" class="wordmark"><svg width="24" height="13" viewBox="0 0 52 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 20c0-2 2-4 5-4l4-7c2-3 6-5 10-5h8c4 0 7 2 9 5l3 5c3 0 6 1 8 3l1 3H2z" stroke="currentColor" stroke-width="1.6"/><circle cx="14" cy="22" r="3" stroke="currentColor" stroke-width="1.6"/><circle cx="38" cy="22" r="3" stroke="currentColor" stroke-width="1.6"/><circle cx="45" cy="16" r="1.6" fill="#e2231a"/></svg>LAST MINUTE <b style="color:var(--gold)">EXOTICS</b></a>
+  <div class="foot-links">
+    La Jolla, California &nbsp;·&nbsp;
+    <a href="https://instagram.com/lastminuteexotics" target="_blank" rel="noopener">@lastminuteexotics</a> &nbsp;·&nbsp;
+    <a href="#legal">Privacy</a> &nbsp;·&nbsp;
+    <a href="#legal">Terms</a>
+  </div>
+  <div class="copyright">© <span id="year"></span> Last Minute Exotics. Private membership platform. Not affiliated with any single manufacturer.</div>
+</footer>
+
+<script type="module">
+  import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+
+  const SUPABASE_URL = "https://kcrwbyyeszrfipfqqjoz.supabase.co";
+  const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtjcndieXllc3pyZmlwZnFxam96Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODM2NDgxMTcsImV4cCI6MjA5OTIyNDExN30.JAxpgJKmTd2TJwgYPj5NopnLts69D3DOk2k6H-ThoXI";
+  const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // ---- State ----
+  const params = new URLSearchParams(location.search);
+  const referredBy = params.get('ref') || null;
+  const source = params.get('src') || (referredBy ? 'referral' : 'direct');
+  const qrSource = referredBy ? 'Referral' : 'Poster';
+
+  const answers = { brand:null, reason:null, priorities:[], frequency:null, founderInterest:null };
+  const contact = { firstName:null, lastName:null, email:null, phone:null };
+  let currentStep = 1;
+  const TOTAL_STEPS = 6;
+
+  const quizCard = document.getElementById('quizCard');
+  const progressBar = document.getElementById('progressBar');
+  const steps = [...document.querySelectorAll('.q-step')];
+
+  function renderProgress(){
+    progressBar.innerHTML = '';
+    for(let i=1;i<=TOTAL_STEPS;i++){
+      const b = document.createElement('div');
+      b.className = 'bar' + (i <= currentStep ? ' done' : '');
+      progressBar.appendChild(b);
+    }
+  }
+
+  function goToStep(n){
+    currentStep = n;
+    steps.forEach(s => s.classList.toggle('active', Number(s.dataset.step) === n));
+    renderProgress();
+  }
+
+  function showError(id, msg){
+    const el = document.getElementById(id);
+    el.textContent = msg;
+    el.style.display = 'block';
+  }
+  function clearError(id){
+    const el = document.getElementById(id);
+    el.style.display = 'none';
+  }
+
+  // Contact step
+  document.getElementById('continueContact').addEventListener('click', () => {
+    const firstName = document.getElementById('firstNameInput').value.trim();
+    const lastName = document.getElementById('lastNameInput').value.trim();
+    const email = document.getElementById('emailInput').value.trim();
+    const phone = document.getElementById('phoneInput').value.trim();
+
+    if(!firstName || !lastName){ showError('contactError','Please enter your first and last name.'); return; }
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ showError('contactError','Please enter a valid email.'); return; }
+
+    clearError('contactError');
+    contact.firstName = firstName;
+    contact.lastName = lastName;
+    contact.email = email;
+    contact.phone = phone || null;
+    goToStep(2);
+  });
+
+  // Single-select questions auto-advance
+  document.querySelectorAll('.opt-grid[data-field]:not([data-max])').forEach(grid => {
+    const field = grid.dataset.field;
+    grid.addEventListener('click', (e) => {
+      const opt = e.target.closest('.opt');
+      if(!opt) return;
+      [...grid.children].forEach(c => c.classList.remove('selected'));
+      opt.classList.add('selected');
+      answers[field] = opt.textContent.trim();
+      setTimeout(() => {
+        if(currentStep === TOTAL_STEPS){
+          submitEntry();
+        } else {
+          goToStep(currentStep + 1);
+        }
+      }, 220);
+    });
+  });
+
+  // Multi-select (priorities, max 2)
+  const priorityGrid = document.querySelector('.opt-grid[data-field="priorities"]');
+  const continuePriorities = document.getElementById('continuePriorities');
+  priorityGrid.addEventListener('click', (e) => {
+    const opt = e.target.closest('.opt');
+    if(!opt) return;
+    const max = Number(priorityGrid.dataset.max || 2);
+    const label = opt.textContent.trim();
+    if(opt.classList.contains('selected')){
+      opt.classList.remove('selected');
+      answers.priorities = answers.priorities.filter(p => p !== label);
+    } else {
+      if(answers.priorities.length >= max) return;
+      opt.classList.add('selected');
+      answers.priorities.push(label);
+    }
+    continuePriorities.disabled = answers.priorities.length === 0;
+  });
+  continuePriorities.addEventListener('click', () => {
+    if(answers.priorities.length === 0) return;
+    goToStep(5);
+  });
+
+  document.querySelectorAll('.q-back').forEach(btn => {
+    btn.addEventListener('click', () => goToStep(Number(btn.dataset.back)));
+  });
+
+  function makeReferralCode(name){
+    const base = (name || 'VIP').normalize('NFKD').replace(/[^a-zA-Z]/g,'').slice(0,4).toUpperCase() || 'VIP';
+    const rand = Array.from(crypto.getRandomValues(new Uint8Array(4)))
+      .map(b => b.toString(36)).join('').toUpperCase().slice(0,4);
+    return base + rand;
+  }
+
+  async function submitEntry(){
+    const founderInterestGrid = document.querySelector('.opt-grid[data-field="founderInterest"]');
+    if(!answers.founderInterest){ return; }
+
+    let attempts = 0;
+    let inserted = null;
+    let lastError = null;
+
+    while(attempts < 5 && !inserted){
+      attempts++;
+      const code = makeReferralCode(contact.firstName);
+      const { data, error } = await supabase.from('lme_waitlist').insert({
+        first_name: contact.firstName,
+        last_name: contact.lastName,
+        name: `${contact.firstName} ${contact.lastName}`.trim(),
+        email: contact.email,
+        phone: contact.phone,
+        quiz_brand: answers.brand,
+        quiz_reason: answers.reason,
+        quiz_priorities: answers.priorities,
+        quiz_frequency: answers.frequency,
+        quiz_founder_interest: answers.founderInterest,
+        referral_code: code,
+        referred_by: referredBy,
+        source: source,
+        qr_source: qrSource,
+        user_agent: navigator.userAgent
+      }).select('referral_code').single();
+
+      if(!error){
+        inserted = { ...data, referral_code: code };
+        break;
+      }
+      lastError = error;
+      if(error.code === '23505' && error.message && error.message.includes('email')){
+        break;
+      }
+    }
+
+    if(!inserted){
+      if(lastError && lastError.message && lastError.message.includes('email')){
+        showError('submitError','That email is already on the list — check your inbox for updates.');
+      } else {
+        showError('submitError','Something went wrong. Please try again.');
+      }
+      return;
+    }
+
+    // Fetch entry count
+    let entries = 1;
+    try{
+      const { data: stats } = await supabase.rpc('lme_get_signup_stats', { p_code: inserted.referral_code });
+      if(stats && stats[0]){ entries = stats[0].entries; }
+    }catch(e){ /* non-fatal */ }
+
+    const refUrl = `${location.origin}${location.pathname}?ref=${inserted.referral_code}`;
+    document.getElementById('refLink').value = refUrl;
+    document.getElementById('entryCount').textContent = entries;
+    document.getElementById('entryPlural').textContent = entries === 1 ? 'y' : 'ies';
+    document.getElementById('smsShare').href = `sms:?&body=${encodeURIComponent('I just joined the Last Minute Exotics private waitlist in La Jolla. Join with my link: ' + refUrl)}`;
+
+    quizCard.querySelector('.quiz-progress').style.display = 'none';
+    steps.forEach(s => s.classList.remove('active'));
+    document.getElementById('thankyou').classList.add('active');
+  }
+
+  document.getElementById('copyBtn').addEventListener('click', () => {
+    const input = document.getElementById('refLink');
+    input.select();
+    navigator.clipboard?.writeText(input.value);
+    const btn = document.getElementById('copyBtn');
+    const original = btn.textContent;
+    btn.textContent = 'Copied';
+    setTimeout(() => btn.textContent = original, 1500);
+  });
+
+  document.getElementById('shareBtn').addEventListener('click', async () => {
+    const url = document.getElementById('refLink').value;
+    if(navigator.share){
+      try{
+        await navigator.share({ title:'Last Minute Exotics', text:'Private access to last-minute exotic car availability in La Jolla — join the waitlist:', url });
+      }catch(e){}
+    } else {
+      navigator.clipboard?.writeText(url);
+    }
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if(!isOpen) item.classList.add('open');
+    });
+  });
+
+  renderProgress();
+</script>
+</body>
+</html>
